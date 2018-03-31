@@ -8,6 +8,18 @@
       </div>
     </div>
 
+    <swiper class="slider-wrap" :indicator-dots="true" :autoplay="true" :circular="true" :interval="3000" :duration="1000" indicator-active-color="#AB956D">
+      <swiper-item v-for="slide in slides" :key="slide.id">
+        <image :src="slide.image" class="slide-image" mode="aspectFill"/>
+      </swiper-item>
+    </swiper>
+
+    <swiper class="slider-wrap" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+      <swiper-item v-for="movie in movies" :key="movie.id">
+        <image class="slide-image" :src="movie.images.large" mode="aspectFill"/>
+      </swiper-item>
+    </swiper>
+
     <div class="usermotto">
       <div class="user-motto">
         <card :text="motto"></card>
@@ -29,7 +41,9 @@ export default {
   data () {
     return {
       motto: 'Hello World',
-      userInfo: {}
+      userInfo: {},
+      slides: [],
+      movies: []
     }
   },
 
@@ -67,6 +81,14 @@ export default {
 </script>
 
 <style scoped>
+.slider-wrap {
+  width: 100%;
+  height: 400rpx;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
