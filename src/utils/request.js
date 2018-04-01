@@ -3,7 +3,7 @@ import Fly from 'flyio'
 
 const request = new Fly()
 
-request.config.timeout = 5 * 1000
+request.config.timeout = 10 * 1000
 // request.config.baseURL = 'https://douban.uieee.com/v2'
 request.config.baseURL = 'http://localhost:3001/douban'
 

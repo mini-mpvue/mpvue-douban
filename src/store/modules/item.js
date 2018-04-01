@@ -20,7 +20,7 @@ const mutations = {
 }
 
 const actions = {
-  async getMovie ({ state, commit }, { id }) {
+  async getMovie ({ state, commit }, { id }, cb) {
     const movieDetails = state.movieDetails
     const matchMovies = movieDetails.find(v => v.id === id)
     if (matchMovies) {

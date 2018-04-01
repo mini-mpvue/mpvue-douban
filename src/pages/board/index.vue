@@ -47,8 +47,8 @@ export default {
   data () {
     return {
       boards: [
-        { key: 'top250' }
-        // { key: 'us_box' },
+        { key: 'top250' },
+        { key: 'us_box' }
         // { key: 'in_theaters' },
         // { key: 'coming_soon' }
       ],

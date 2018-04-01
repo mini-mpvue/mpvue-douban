@@ -20,7 +20,7 @@
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex'
 import { CLEAR_MOVIE } from '@/store/mutations-type'
-// import wx from '@/utils/wx'
+import wx from '@/utils/wx'
 
 export default {
   data () {
@@ -42,8 +42,9 @@ export default {
     ...mapMutations('item', {
       clearMovie: CLEAR_MOVIE
     }),
-    getMovieData (id) {
-      this.getMovie({ id })
+    async getMovieData (id) {
+      await this.getMovie({ id })
+      wx.setNavigationBarTitle({ title: this.movie.title + ' « 电影 « 豆瓣' })
     }
   },
 
