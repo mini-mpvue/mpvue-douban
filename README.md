@@ -2,6 +2,10 @@
 
 > 基于 mpvue 实现豆瓣电影微信小程序
 
+## 演示
+
+![mpvue-douban](mpvue-douban.gif)
+
 ## Build Setup
 
 ``` bash
