@@ -6,6 +6,6 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '我的'
+    navigationBarTitleText: '关于我'
   }
 }
