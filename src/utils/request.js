@@ -8,7 +8,7 @@ request.config.timeout = 5 * 1000
 request.config.baseURL = 'http://localhost:3001/douban'
 
 request.interceptors.request.use((request) => {
-  wx.showLoading()
+  wx.showLoading({ title: '拼命加载中...' })
   return request
 })
 

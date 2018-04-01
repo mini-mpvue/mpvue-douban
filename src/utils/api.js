@@ -42,3 +42,14 @@ export function getBoardData ({ board = 'top250', page = 1, count = 20, city = '
   }
   return request.get(`/${board}`, params)
 }
+
+/**
+ * 获取电影条目信息：
+ *  接口地址: subject/:id
+ *  要求权限：movie_basic_r
+ *  可传参数：
+ *    @params {number} id 电影id
+ */
+export function getMovieData (id) {
+  return request.get(`/subject/${id}`)
+}

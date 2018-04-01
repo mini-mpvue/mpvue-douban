@@ -1,16 +1,16 @@
 <template>
   <div class="md-board">
     <view class="slide">
-      <swiper class="slider-wrap" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+      <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
         <swiper-item v-for="(movie, index) in movies" :key="index">
-          <image class="slide-image" :src="movie.images.large" mode="aspectFill"/>
+          <image :src="movie.images.large" mode="aspectFill"/>
         </swiper-item>
       </swiper>
     </view>
     <view class="board" :scroll-y="true">
       <block v-for="(item, index) in boards" :key="item.key">
         <view class="board-item">
-          <navigator :url="'../list/list?type=' + item.key + '&title=' + item.title" hover-class="none">
+          <navigator :url="'../list/main?type=' + item.key + '&title=' + item.title" hover-class="none">
             <view class="title">
               <text>{{ item.title }}</text>
               <image src="../../../static/images/arrowright.png" mode="aspectFill"/>
@@ -18,7 +18,7 @@
           </navigator>
           <scroll-view class="content" :scroll-x="true">
             <view class="inner" v-if="item.key !== 'us_box'">
-              <navigator v-for="(movie, i) in item.movies" :key="movie.id + index + i" :url="'../item/item?id=' + movie.id">
+              <navigator v-for="(movie, i) in item.movies" :key="movie.id + index + i" :url="'../item/main?id=' + movie.id">
                 <view class="movie-item">
                   <image :src="movie.images.large" mode="aspectFill"/>
                   <text>{{ movie.title }}</text>
@@ -26,7 +26,7 @@
               </navigator>
             </view>
             <view class="inner" v-else>
-              <navigator v-for="(movie, i) in item.movies" :key="movie.rank + index + i" :url="'../item/item?id=' + movie.subject.id">
+              <navigator v-for="(movie, i) in item.movies" :key="movie.rank + index + i" :url="'../item/main?id=' + movie.subject.id">
                 <view class="movie-item">
                   <image :src="movie.subject.images.large" mode="aspectFill"/>
                   <text>{{ movie.subject.title }}</text>
@@ -47,10 +47,10 @@ export default {
   data () {
     return {
       boards: [
-        { key: 'top250' },
-        { key: 'us_box' },
-        { key: 'in_theaters' },
-        { key: 'coming_soon' }
+        { key: 'top250' }
+        // { key: 'us_box' },
+        // { key: 'in_theaters' },
+        // { key: 'coming_soon' }
       ],
       movies: []
     }
@@ -58,7 +58,6 @@ export default {
 
   methods: {
     async getBoards () {
-      console.log(this.boards)
       const tasks = this.boards.map(board => {
         return getBoardData({ board: board.key, page: 1, count: 8 })
       })
