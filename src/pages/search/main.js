@@ -6,6 +6,6 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '题库'
+    navigationBarTitleText: '搜索'
   }
 }
