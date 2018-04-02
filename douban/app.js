@@ -4,7 +4,7 @@ const request = require('co-request')
 
 const URI = 'https://api.douban.com/v2/movie'
 router.prefix('/douban')
-router.get('/:type', async ctx => {
+router.get(['/:type', '/:type/:id'], async ctx => {
   let result
   try {
     let url = ctx.url.replace(/\/douban(\w*)/, URI + '$1')

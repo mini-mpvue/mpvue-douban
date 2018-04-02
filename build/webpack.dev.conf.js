@@ -36,7 +36,8 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': config.dev.env,
+      'process.env.METHOD': JSON.stringify(process.env.METHOD)
     }),
 
     // copy from ./webpack.prod.conf.js
