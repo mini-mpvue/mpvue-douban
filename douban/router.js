@@ -3,7 +3,6 @@ const request = require('co-request')
 // const qs = require('querystring')
 
 const URI = 'https://api.douban.com/v2/movie'
-
 router.prefix('/douban')
 
 router.get('/:type', async ctx => {

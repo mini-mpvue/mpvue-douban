@@ -4,7 +4,7 @@ import Fly from 'flyio'
 const request = new Fly()
 
 request.config.timeout = 10 * 1000
-// request.config.baseURL = 'https://douban.uieee.com/v2'
+// request.config.baseURL = 'https://movie.douban.gusaifei.com/'
 request.config.baseURL = 'http://localhost:3001/douban'
 
 request.interceptors.request.use((request) => {
