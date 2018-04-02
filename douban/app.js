@@ -1,11 +1,24 @@
 const Koa = require('koa')
-const mount = require('koa-mount')
+const router = require('koa-router')()
+const request = require('co-request')
 
-const router = require('./router')
+const URI = 'https://api.douban.com/v2/movie'
+router.prefix('/douban')
+router.get('/:type', async ctx => {
+  let result
+  try {
+    let url = ctx.url.replace(/\/douban(\w*)/, URI + '$1')
+    console.log(':::', url, ':::')
+    result = await request({uri: url, method: ctx.method}) // 返回的是字符串
+  } catch (error) {
+    throw new Error(error)
+  } finally {
+    ctx.body = JSON.parse(result.body)
+  }
+})
 
 const app = new Koa()
-
-app.use(mount('/', router))
+app.use(router.routes())
 
 app.listen(3001, () => {
   console.log(`Server started on 3001`)

@@ -29,7 +29,6 @@ export default {
       if (!this.hasMore) return
 
       let data = await getBoardData({ board: this.type, page: this.page++ })
-      data = JSON.parse(data)
 
       if (data.subjects.length) {
         this.movies.push.apply(this.movies, data.subjects)

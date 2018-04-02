@@ -9,7 +9,6 @@ const state = {
 const mutations = {
   [MOVIE_DETAIL]: (state, { data, match }) => {
     if (!match) {
-      data = JSON.parse(data)
       state.movieDetails.unshift(data)
     }
     state.movie = data

@@ -51,7 +51,6 @@ export default {
         return
       }
       let data = await getBoardData({board: 'coming_soon', page: 1, count: 3})
-      data = JSON.parse(data)
       this.movies = data.subjects
       await setStorage('last_splash_data', {
         movies: data.subjects,

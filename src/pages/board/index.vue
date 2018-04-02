@@ -64,7 +64,7 @@ export default {
       let boards = await Promise.all(tasks)
       let data
       this.boards = this.boards.map((board, i) => {
-        data = JSON.parse(boards[i])
+        data = boards[i]
         board.title = data.title
         board.movies = data.subjects
         return board
