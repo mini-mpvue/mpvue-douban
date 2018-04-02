@@ -6,6 +6,14 @@
 
 ![mpvue-douban](mpvue-douban.gif)
 
+## 本地代理
+
+进入到 `douban` 目录，运行 `app.js`，或者直接运行 npm scripts：
+
+```bash
+npm run server
+```
+
 ## Build Setup
 
 ``` bash

@@ -8,5 +8,5 @@ const app = new Koa()
 app.use(mount('/', router))
 
 app.listen(3001, () => {
-  console.log(`Server started on 3000`)
+  console.log(`Server started on 3001`)
 })
