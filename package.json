@@ -6,14 +6,14 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "dev:proxy1": "cross-env METHOD=proxy1 npm-run-all --parallel dev server",
-    "dev:proxy2": "cross-env METHOD=proxy2 npm-run-all --parallel dev proxy",
+    "dev:proxy1": "cross-env METHOD=proxy1 npm-run-all --parallel dev proxy1",
+    "dev:proxy2": "cross-env METHOD=proxy2 npm-run-all --parallel dev proxy2",
     "dev:nginx": "cross-env METHOD=nginx npm run dev",
-    "start": "npm run dev:server",
+    "start": "npm run dev:proxy1",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "server": "node douban/app.js",
-    "proxy": " node douban/proxy.js"
+    "proxy1": "node douban/app.js",
+    "proxy2": " node douban/proxy.js"
   },
   "dependencies": {
     "flyio": "^0.4.5",
