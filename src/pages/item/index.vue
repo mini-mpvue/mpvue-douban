@@ -19,7 +19,7 @@
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex'
-import { CLEAR_MOVIE } from '@/store/mutations-type'
+import { ITEM_CLEAR_MOVIE } from '@/store/mutations-type'
 import wx from '@/utils/wx'
 
 export default {
@@ -40,7 +40,7 @@ export default {
       'getMovie'
     ]),
     ...mapMutations('item', {
-      clearMovie: CLEAR_MOVIE
+      clearMovie: ITEM_CLEAR_MOVIE
     }),
     async getMovieData (id) {
       await this.getMovie({ id })

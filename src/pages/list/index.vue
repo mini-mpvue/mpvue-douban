@@ -5,9 +5,10 @@
 </template>
 
 <script>
-import { getBoardData } from '@/utils/api'
+import { mapState, mapActions, mapMutations } from 'vuex'
 import wx from '@/utils/wx'
 import MovieList from '@/components/movie-list'
+import { LIST_CLEAR_STATE } from '@/store/mutations-type'
 
 export default {
   components: {
@@ -16,44 +17,35 @@ export default {
 
   data () {
     return {
-      type: '',
-      title: '',
-      page: 1,
-      hasMore: true,
-      movies: []
+      type: ''
     }
   },
 
+  computed: {
+    ...mapState('list', ['movies', 'hasMovie', 'type'])
+  },
+
   methods: {
+    ...mapMutations('list', {
+      clearState: LIST_CLEAR_STATE
+    }),
+    ...mapActions('list', [
+      'getMovies'
+    ]),
     async getMovieList () {
-      if (!this.hasMore) return
-
-      let data = await getBoardData({ board: this.type, page: this.page++ })
-
-      if (data.subjects.length) {
-        this.movies.push.apply(this.movies, data.subjects)
-
-        if (this.type === 'us_box') {
-          this.hasMore = false
-        }
-      } else {
-        this.hasMore = false
-      }
+      await this.getMovies({type: this.type})
     }
   },
 
   mounted () {
     const { title, type } = this.$root.$mp.query
     wx.setNavigationBarTitle({ title: title + ' « 电影 « 豆瓣' })
-    this.title = title
     this.type = type
     this.getMovieList()
   },
 
   async onPullDownRefresh () { // 下拉刷新
-    this.page = 1
-    this.movies = []
-    this.hasMore = true
+    this.clearState()
     await this.getMovieList()
     wx.stopPullDownRefresh()
   },
@@ -63,9 +55,7 @@ export default {
   },
 
   onUnload () { // 清空状态
-    this.page = 1
-    this.movies = []
-    this.hasMore = true
+    this.clearState()
   }
 }
 </script>

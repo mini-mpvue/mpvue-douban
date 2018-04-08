@@ -1,5 +1,5 @@
 <template>
-  <div class="md-board">
+  <div class="md-search">
     <view class="header">
       <input class="search" v-model="q" :placeholder="subtitle" placeholder-class="search-placeholder" auto-focus @change="handleSearch"/>
     </view>
@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import { getBoardData } from '@/utils/api'
+import { mapState, mapActions, mapMutations } from 'vuex'
 import MovieList from '@/components/movie-list'
+import { LIST_CLEAR_STATE } from '@/store/mutations-type'
 
 export default {
   components: {
@@ -19,30 +20,27 @@ export default {
   data () {
     return {
       q: '',
-      subtitle: '请在此输入搜索内容',
-      movies: [],
-      page: 1,
-      hasMore: true
+      subtitle: '请在此输入搜索内容'
     }
   },
 
+  computed: {
+    ...mapState('list', ['movies', 'hasMovie', 'type'])
+  },
+
   methods: {
+    ...mapMutations('list', {
+      clearState: LIST_CLEAR_STATE
+    }),
+    ...mapActions('list', [
+      'getMovies'
+    ]),
     async getSearchData () {
-      if (!this.hasMore) return
-
-      let data = await getBoardData({ board: 'search', page: this.page++, search: this.q })
-
-      if (data.subjects.length) {
-        this.movies.push.apply(this.movies, data.subjects)
-      } else {
-        this.hasMore = false
-      }
+      await this.getMovies({type: 'search', search: this.q})
     },
 
     resetData () {
-      this.movies = []
-      this.page = 1
-      this.hasMore = true
+      this.clearState()
     },
 
     handleSearch () {
@@ -55,7 +53,7 @@ export default {
     this.getSearchData()
   },
 
-  onUnload () { // 清空状态
+  onHide () { // 清空状态
     this.resetData()
   }
 }

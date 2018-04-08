@@ -12,6 +12,7 @@
 <script>
 import { getStorage, setStorage } from '@/utils/wechat'
 import { getBoardData } from '@/utils/api'
+const LAST_SPLASH_DATA = 'LAST_SPLASH_DATA'
 
 export default {
   data () {
@@ -23,7 +24,7 @@ export default {
   methods: {
     async getCache () {
       try {
-        let res = await getStorage('last_splash_data')
+        let res = await getStorage(LAST_SPLASH_DATA)
         const { movies, expires } = res.data
         // 有缓存，判断是否过期
         if (movies && expires > Date.now()) {
@@ -52,7 +53,7 @@ export default {
       }
       let data = await getBoardData({board: 'coming_soon', page: 1, count: 3})
       this.movies = data.subjects
-      await setStorage('last_splash_data', {
+      await setStorage(LAST_SPLASH_DATA, {
         movies: data.subjects,
         expires: Date.now() + 1 * 24 * 60 * 60 * 1000
       })

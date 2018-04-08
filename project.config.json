@@ -9,7 +9,7 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "wxf45f4d655de2df9e",
+	"appid": "wxebcb658c980d16d1",
 	"projectname": "mpvue-douban",
 	"condition": {
 		"search": {

@@ -41,40 +41,27 @@
 </template>
 
 <script>
-import { getBoardData } from '@/utils/api'
+import { mapState, mapActions } from 'vuex'
 
 export default {
-  data () {
-    return {
-      boards: [
-        { key: 'top250' },
-        { key: 'us_box' },
-        { key: 'in_theaters' },
-        { key: 'coming_soon' }
-      ],
-      movies: []
-    }
+  computed: {
+    ...mapState('board', {
+      boards: state => state.boards,
+      movies: state => state.movies
+    })
   },
 
   methods: {
-    async getBoards () {
-      const tasks = this.boards.map(board => {
-        return getBoardData({ board: board.key, page: 1, count: 8 })
-      })
-      let boards = await Promise.all(tasks)
-      let data
-      this.boards = this.boards.map((board, i) => {
-        data = boards[i]
-        board.title = data.title
-        board.movies = data.subjects
-        return board
-      })
-      this.movies = this.boards[0].movies
+    ...mapActions('board', [
+      'getBoards'
+    ]),
+    async getBoardData () {
+      await this.getBoards()
     }
   },
 
   mounted () {
-    this.getBoards()
+    this.getBoardData()
   }
 }
 </script>

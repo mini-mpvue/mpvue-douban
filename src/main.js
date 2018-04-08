@@ -49,11 +49,6 @@ export default {
           selectedIconPath: 'static/images/profile-actived.png'
         }
       ]
-    },
-    networkTimeout: {
-      request: 20000,
-      downloadFile: 20000
-    },
-    debug: false
+    }
   }
 }
