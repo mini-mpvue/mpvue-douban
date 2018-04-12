@@ -99,10 +99,10 @@ npm run build
 npm run build --report
 
 # 启动本地代理1
-npm run server
+npm run proxy1
 
 # 启动本地代理2
-npm run proxy
+npm run proxy2
 ```
 
 ## 代理
@@ -122,13 +122,13 @@ request.config.baseURL = 'https://movie.douban.gusaifei.com/v2/movie'
 `douban/app.js`
 
 ```bash
-npm run server
+npm run proxy1
 ```
 
 `douban/proxy.js`
 
 ```bash
-npm run proxy
+npm run proxy2
 ```
 
 需要借助 npm scripts 启动，或者进入到 `douban` 目录，运行 `node app.js` 或 `node proxy.js`
