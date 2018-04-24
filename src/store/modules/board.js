@@ -3,9 +3,9 @@ import { BOARD_MOVIE_LIST } from '@/store/mutations-type'
 
 const state = {
   boards: [
-    { key: 'top250' },
-    { key: 'us_box' },
-    { key: 'in_theaters' },
+    // { key: 'top250' },
+    // { key: 'us_box' },
+    // { key: 'in_theaters' },
     { key: 'coming_soon' }
   ],
   movies: []

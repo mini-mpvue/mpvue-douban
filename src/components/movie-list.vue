@@ -1,6 +1,6 @@
 <template>
   <div class="md-movie-list">
-    <view class="list">
+    <view class="md-movie-list__list">
       <template v-if="type !== 'us_box'">
         <navigator :url="'../item/main?id=' + item.id" v-for="(item, index) in movies" :key="item.id">
           <movie-item :movie="item"></movie-item>
@@ -11,10 +11,10 @@
           <movie-item :movie="item.subject"></movie-item>
         </navigator>
       </template>
-      <view class="tips">
+      <view class="md-movie-list__tips">
         <view v-if="hasMore">
-          <image src="/static/images/loading.gif" mode="aspectFill"/>
-          <text>正在加载...</text>
+          <image class="md-movie-list__tips-image"  src="/static/images/loading.gif" mode="aspectFill"/>
+          <text class="md-movie-list__tips-text">正在加载...</text>
         </view>
         <view v-else>
           <text>--------------- 我也是有底线的 --------------</text>
@@ -49,90 +49,33 @@ export default {
 }
 </script>
 
-<style>
-.list {
-  height: 100%;
-}
+<style lang="scss">
+@import "node_modules/sass-bem/bem";
+$bem-component-namespace: 'md';
 
-.list .item {
-  display: flex;
-  padding: 20rpx 40rpx;
-  border-bottom: 1rpx solid #eee;
-  cursor: pointer;
-}
+@include c('movie-list') {
 
-.list .item .poster {
-  width: 128rpx;
-  height: 168rpx;
-  margin-right: 20rpx;
-}
+  @include e('list') {
+    height: 100%;
+  }
 
-.list .item .meta {
-  flex: 1;
-}
+  @include e('tips') {
+    font-size: 28rpx;
+    text-align: center;
+    padding: 50rpx;
+    color: #ccc;
+  }
 
-.list .item .meta .title,
-.list .item .meta .sub-title {
-  display: block;
-  margin-bottom: 15rpx;
-}
+  @include e('tips-text') {
+    vertical-align: middle;
+  }
 
-.list .item .meta .title {
-  font-size: 32rpx;
-}
-
-.list .item .meta .sub-title {
-  font-size: 22rpx;
-  color: #c0c0c0;
-}
-
-.list .item .meta .artists {
-  font-size: 24rpx;
-  color: #999;
-}
-
-.list .item .rating text {
-  display: inline-block;
-  width: 40rpx;
-  font-size: 28rpx;
-  font-weight: bold;
-  text-align: center;
-  background-color: rgba(247, 76, 49, 0.8);
-  color: #fff;
-  padding: 10rpx;
-  border-radius: 20rpx;
-}
-
-.list .tips {
-  font-size: 28rpx;
-  text-align: center;
-  padding: 50rpx;
-  color: #ccc;
-}
-
-.list .tips image,
-.list .tips text {
-  vertical-align: middle;
-}
-
-.list .tips image {
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: 20rpx;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  border-bottom: 1rpx solid #ccc;
-}
-
-
-.header text {
-  padding: 20rpx 40rpx;
-  color: #999;
-  font-size: 38rpx;
-  text-align: center;
+  @include e('tips-image') {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+    vertical-align: middle;
+  }
 }
 
 </style>

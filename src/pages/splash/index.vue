@@ -1,9 +1,9 @@
 <template>
   <div class="md-splash">
-    <swiper class="splash" indicator-dots>
-      <swiper-item v-for="(item, index) in movies" :for-index="index" :key="item.id">
-        <image :src="item.images.large" class="slide-image" mode="aspectFill"/>
-        <button class="start" @click="handleStart" v-if="index === movies.length - 1">立即体验</button>
+    <swiper class="md-splash__swiper" indicator-dots>
+      <swiper-item class="md-splash__item"  v-for="(item, index) in movies" :for-index="index" :key="item.id">
+        <image :src="item.images.large" class="md-splash__image" mode="aspectFill"/>
+        <button class="md-splash__start" @click="handleStart" v-if="index === movies.length - 1">立即体验</button>
       </swiper-item>
     </swiper>
   </div>
@@ -66,45 +66,44 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "node_modules/sass-bem/bem";
+$bem-component-namespace: 'md';
+
 page {
   height: 100%;
 }
 
-.container {
+@include c('splash') {
   height: 100%;
-}
 
-.md-splash {
-  height: 100%;
-}
+  @include e('swiper') {
+    height: 100%;
+  }
 
-.splash {
-  height: 100%;
-}
+  @include e('item') {
+    flex: 1;
+  }
 
-.splash swiper-item {
-  flex: 1;
-}
+  @include e('image') {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .9;
+  }
 
-.splash swiper-item image {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  opacity: .9;
-}
-
-.start {
-  position: absolute;
-  bottom: 200rpx;
-  left: 50%;
-  width: 300rpx;
-  margin-left: -150rpx;
-  background-color: rgba(64, 88, 109, .4);
-  color: #fff;
-  border: 1rpx solid rgba(64, 88, 109, .8);
-  border-radius: 200rpx;
-  font-size: 40rpx;
+  @include e('start') {
+    position: absolute;
+    bottom: 200rpx;
+    left: 50%;
+    width: 300rpx;
+    margin-left: -150rpx;
+    background-color: rgba(64, 88, 109, .4);
+    color: #fff;
+    border: 1rpx solid rgba(64, 88, 109, .8);
+    border-radius: 200rpx;
+    font-size: 40rpx;
+  }
 }
 
 </style>

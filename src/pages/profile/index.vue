@@ -1,11 +1,11 @@
 <template>
   <div class="md-profile">
-    <!-- <view class="header">
-      <text class="title">{{ title }}</text>
+    <!-- <view class="md-profile__header">
+      <text class="md-profile__title">{{ title }}</text>
     </view> -->
-    <view class="user" @click="getUserInfo">
-      <image class="user-avatar" :src="userInfo.avatarUrl" mode="aspectFit"/>
-      <text class="user-nickname">{{ userInfo.nickName }}</text>
+    <view class="md-profile__user" @click="getUserInfo">
+      <image class="md-profile__user-avatar" :src="userInfo.avatarUrl" mode="aspectFit"/>
+      <text class="md-profile__user-nickname">{{ userInfo.nickName }}</text>
       <text :hidden="!userInfo.city">{{ userInfo.city }}, {{ userInfo.province }}</text>
       <text :hidden="!userInfo.city"> Thanks~ </text>
     </view>
@@ -41,36 +41,42 @@ export default {
 }
 </script>
 
-<style>
-.header {
-  display: flex;
-  justify-content: center;
-  border-bottom: 1rpx solid #ccc;
-}
+<style lang="scss">
+@import "node_modules/sass-bem/bem";
+$bem-component-namespace: 'md';
 
-.header text {
-  padding: 40rpx;
-  color: #999;
-  font-size: 148rpx;
-  text-align: center;
-}
+@include c('profile') {
 
-.user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  @include e('header') {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1rpx solid #ccc;
+  }
 
-.user-avatar {
-  width: 100%;
-  height: 620rpx;
-  margin: 40rpx;
-}
+  @include e('title') {
+    padding: 40rpx;
+    color: #999;
+    font-size: 148rpx;
+    text-align: center;
+  }
 
-.user-nickname {
-  color: #aaa;
-  font-size: 30rpx;
-  margin-bottom: 30rpx;
+  @include e('user') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include e('user-avatar') {
+    width: 100%;
+    height: 620rpx;
+    margin: 40rpx;
+  }
+
+  @include e('user-nickname') {
+    color: #aaa;
+    font-size: 30rpx;
+    margin-bottom: 30rpx;
+  }
 }
 
 </style>

@@ -1,17 +1,17 @@
 <template>
   <div class="md-item">
-    <image v-if="movie.images" class="background" :src="movie.images.large" mode="aspectFill"/>
+    <image v-if="movie.images" class="md-item__background" :src="movie.images.large" mode="aspectFill"/>
     <block v-if="movie.title">
-      <view class="meta">
-        <image class="poster" :src="movie.images.large" mode="aspectFit"/>
-        <text class="title">{{ movie.title }}({{ movie.year }})</text>
-        <text class="info">评分：{{ movie.rating.average }}</text>
-        <text class="info">导演：<block v-for="director in movie.directors" :key="director.id"> {{ director.name }} </block></text>
-        <text class="info">主演：<block v-for="cast in movie.casts" :key="cast.id"> {{ cast.name }} </block></text>
+      <view class="md-item__meta">
+        <image class="md-item__poster" :src="movie.images.large" mode="aspectFit"/>
+        <text class="md-item__title">{{ movie.title }}({{ movie.year }})</text>
+        <text class="md-item__info">评分：{{ movie.rating.average }}</text>
+        <text class="md-item__info">导演：<block v-for="director in movie.directors" :key="director.id"> {{ director.name }} </block></text>
+        <text class="md-item__info">主演：<block v-for="cast in movie.casts" :key="cast.id"> {{ cast.name }} </block></text>
       </view>
-      <view class="summary">
-        <text class="label">摘要：</text>
-        <text class="content">{{ movie.summary }}</text>
+      <view class="md-item__summary">
+        <text class="md-item__label">摘要：</text>
+        <text class="md-item__content">{{ movie.summary }}</text>
       </view>
     </block>
   </div>
@@ -63,59 +63,65 @@ export default {
 }
 </script>
 
-<style>
-.meta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50rpx 40rpx;
-}
+<style lang="scss">
+@import "node_modules/sass-bem/bem";
+$bem-component-namespace: 'md';
 
-.poster {
-  width: 100%;
-  height: 800rpx;
-  margin: 20rpx;
-}
+@include c('item') {
 
-.title {
-  font-style: 42rpx;
-  color: #444;
-}
+  @include e('background') {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1000;
+    opacity: .1;
+  }
 
-.info {
-  font-size: 24rpx;
-  color: #888;
-  margin-top: 20rpx;
-  width: 80%;
-}
+  @include e('meta') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50rpx 40rpx;
+  }
 
-.summary {
-  width: 80%;
-  margin: 30rpx auto;
-}
+  @include e('poster') {
+    width: 100%;
+    height: 800rpx;
+    margin: 20rpx;
+  }
 
-.label {
-  display: block;
-  font-size: 30rpx;
-  margin-bottom: 30rpx;
-}
+  @include e('title') {
+    font-style: 42rpx;
+    color: #444;
+  }
 
-.content {
-  color: #666;
-  font-size: 22rpx;
-  padding: 2em;
-}
+  @include e('info') {
+    font-size: 24rpx;
+    color: #888;
+    margin-top: 20rpx;
+    width: 80%;
+  }
 
-.background {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1000;
-  opacity: .1;
+  @include e('summary') {
+    width: 80%;
+    margin: 30rpx auto;
+  }
+
+  @include e('label') {
+    display: block;
+    font-size: 30rpx;
+    margin-bottom: 30rpx;
+  }
+
+  @include e('content') {
+    color: #666;
+    font-size: 22rpx;
+    padding: 2em;
+  }
 }
 
 </style>

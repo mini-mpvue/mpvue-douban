@@ -1,7 +1,7 @@
 <template>
   <div class="md-search">
-    <view class="header">
-      <input class="search" v-model="q" :placeholder="subtitle" placeholder-class="search-placeholder" auto-focus @change="handleSearch"/>
+    <view class="md-search__header">
+      <input class="md-search__input" v-model="q" :placeholder="subtitle" placeholder-class="md-search__placeholder" auto-focus @change="handleSearch"/>
     </view>
     <movie-list v-if="movies.length" :movies="movies" :has-more="hasMore"></movie-list>
   </div>
@@ -59,24 +59,31 @@ export default {
 }
 </script>
 
-<style>
-.header {
-  display: flex;
-  justify-content: center;
-  border-bottom: 1rpx solid #ccc;
+<style lang="scss">
+@import "node_modules/sass-bem/bem";
+$bem-component-namespace: 'md';
+
+@include c('search') {
+
+  @include e('header') {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1rpx solid #ccc;
+  }
+
+  @include e('input') {
+    width: 100%;
+    padding: 20rpx 40rpx;
+    color: #666;
+    font-size: 38rpx;
+    text-align: center;
+  }
+
+  @include e('placeholder') {
+    color: #ccc;
+    font-size: 38rpx;
+    text-align: center;
+  }
 }
 
-.header .search {
-  width: 100%;
-  padding: 20rpx 40rpx;
-  color: #666;
-  font-size: 38rpx;
-  text-align: center;
-}
-
-.header .search-placeholder {
-  color: #ccc;
-  font-size: 38rpx;
-  text-align: center;
-}
 </style>
