@@ -22,7 +22,7 @@ export default {
   },
 
   computed: {
-    ...mapState('list', ['movies', 'hasMovie', 'type'])
+    ...mapState('list', ['movies', 'hasMore', 'type'])
   },
 
   methods: {
