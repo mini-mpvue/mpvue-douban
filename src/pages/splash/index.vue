@@ -67,9 +67,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "node_modules/sass-bem/bem";
-$bem-component-namespace: 'md';
-
 page {
   height: 100%;
 }
@@ -107,4 +104,3 @@ page {
 }
 
 </style>
-

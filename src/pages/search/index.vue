@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "node_modules/sass-bem/bem";
-$bem-component-namespace: 'md';
-
 @include c('search') {
 
   @include e('header') {

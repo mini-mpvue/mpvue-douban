@@ -65,7 +65,18 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat(
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: [
+            path.resolve(__dirname, '../node_modules/sass-bem/_bem.scss'),
+            path.resolve(__dirname, '../node_modules/compass-mixins/lib/_compass.scss'),
+            path.resolve(__dirname, '../src/theme/var.scss')
+          ]
+        }
+      }
+    ),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
