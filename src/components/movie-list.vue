@@ -2,12 +2,12 @@
   <div class="md-movie-list">
     <view class="md-movie-list__list">
       <template v-if="type !== 'us_box'">
-        <navigator :url="'../item/main?id=' + item.id" v-for="(item, index) in movies" :key="item.id">
+        <navigator :url="'/pages/movie/item?id=' + item.id" v-for="(item, index) in movies" :key="item.id">
           <movie-item :movie="item"></movie-item>
         </navigator>
       </template>
       <template v-else>
-        <navigator :url="'../item/main?id=' + item.subject.id" v-for="(item, index) in movies" :key="item.rank">
+        <navigator :url="'/pages/movie/item?id=' + item.subject.id" v-for="(item, index) in movies" :key="item.rank">
           <movie-item :movie="item.subject"></movie-item>
         </navigator>
       </template>

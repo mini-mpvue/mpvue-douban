@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import App from './App'
-import store from './store'
+import App from '@/App'
+import store from '@/store'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
@@ -15,7 +15,7 @@ export default {
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
-    pages: ['^pages/splash/main'],
+    pages: ['pages/movie/board'],
     window: {
       navigationBarBackgroundColor: '#40586d',
       navigationBarTextStyle: 'white',
@@ -32,19 +32,19 @@ export default {
       list: [
         {
           text: '榜单',
-          pagePath: 'pages/board/main',
+          pagePath: 'pages/movie/board',
           iconPath: 'static/images/board.png',
           selectedIconPath: 'static/images/board-actived.png'
         },
         {
           text: '搜索',
-          pagePath: 'pages/search/main',
+          pagePath: 'pages/movie/search',
           iconPath: 'static/images/search.png',
           selectedIconPath: 'static/images/search-actived.png'
         },
         {
           text: '我的',
-          pagePath: 'pages/profile/main',
+          pagePath: 'pages/user/profile',
           iconPath: 'static/images/profile.png',
           selectedIconPath: 'static/images/profile-actived.png'
         }

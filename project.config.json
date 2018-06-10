@@ -3,8 +3,8 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": false,
-		"postcss": true,
-		"minified": true,
+		"postcss": false,
+		"minified": false,
 		"newFeature": true
 	},
 	"miniprogramRoot": "./dist/",

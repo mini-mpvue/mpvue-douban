@@ -7,8 +7,15 @@ export function login () {
 }
 
 export function getUserInfo () {
+  console.log('asdf')
   return new Promise((resolve, reject) => {
-    wx.getUserInfo({ success: resolve, fail: reject })
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      }})
   })
 }
 

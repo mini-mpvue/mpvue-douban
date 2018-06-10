@@ -28,8 +28,12 @@ export default {
 
   methods: {
     async getUserInfo () {
-      const data = await getUserInfo()
-      this.userInfo = data.userInfo
+      try {
+        const data = await getUserInfo()
+        this.userInfo = data.userInfo
+      } catch (err) {
+        console.log(err)
+      }
     }
   },
 
