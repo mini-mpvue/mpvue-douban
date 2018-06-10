@@ -3,6 +3,7 @@
     <!-- <view class="md-profile__header">
       <text class="md-profile__title">{{ title }}</text>
     </view> -->
+    <button open-type="getUserInfo">授权访问</button>
     <view class="md-profile__user" @click="getUserInfo">
       <image class="md-profile__user-avatar" :src="userInfo.avatarUrl" mode="aspectFit"/>
       <text class="md-profile__user-nickname">{{ userInfo.nickName }}</text>
