@@ -2,6 +2,11 @@
 
 > 基于 mpvue 实现豆瓣电影微信小程序
 
+其他实现：
+
+[基于 taro 实现豆瓣电影微信小程序](https://github.com/mini-mpvue/taro-douban)
+
+
 ## 演示
 
 ![mpvue-douban](mpvue-douban.gif)

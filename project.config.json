@@ -11,6 +11,7 @@
 	"compileType": "miniprogram",
 	"appid": "wxebcb658c980d16d1",
 	"projectname": "mpvue-douban",
+	"libVersion": "2.2.4",
 	"condition": {
 		"search": {
 			"current": -1,
