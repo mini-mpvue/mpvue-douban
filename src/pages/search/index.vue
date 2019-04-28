@@ -1,7 +1,14 @@
 <template>
   <div class="md-search">
     <view class="md-search__header">
-      <input class="md-search__input" v-model="q" :placeholder="subtitle" placeholder-class="md-search__placeholder" auto-focus @change="handleSearch"/>
+      <input
+        class="md-search__input"
+        v-model="q"
+        :placeholder="subtitle"
+        placeholder-class="md-search__placeholder"
+        auto-focus
+        @change="handleSearch"
+      >
     </view>
     <movie-list v-if="movies.length" :movies="movies" :has-more="hasMore"></movie-list>
   </div>
@@ -36,7 +43,7 @@ export default {
       'getMovies'
     ]),
     async getSearchData () {
-      await this.getMovies({type: 'search', search: this.q})
+      await this.getMovies({ type: 'search', search: this.q })
     },
 
     resetData () {
@@ -60,15 +67,14 @@ export default {
 </script>
 
 <style lang="scss">
-@include c('search') {
-
-  @include e('header') {
+@include c("search") {
+  @include e("header") {
     display: flex;
     justify-content: center;
     border-bottom: 1rpx solid #ccc;
   }
 
-  @include e('input') {
+  @include e("input") {
     width: 100%;
     padding: 20rpx 40rpx;
     color: #666;
@@ -76,11 +82,10 @@ export default {
     text-align: center;
   }
 
-  @include e('placeholder') {
+  @include e("placeholder") {
     color: #ccc;
     font-size: 38rpx;
     text-align: center;
   }
 }
-
 </style>

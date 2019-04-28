@@ -20,6 +20,7 @@ const mutations = {
       board.movies = data.subjects
       return board
     })
+    console.log(state.boards)
     state.movies = state.boards[0].movies
   }
 }

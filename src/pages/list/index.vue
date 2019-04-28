@@ -33,7 +33,7 @@ export default {
       'getMovies'
     ]),
     async getMovieList () {
-      await this.getMovies({type: this.type})
+      await this.getMovies({ type: this.type })
     }
   },
 
@@ -61,5 +61,4 @@ export default {
 </script>
 
 <style>
-
 </style>

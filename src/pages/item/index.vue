@@ -1,13 +1,24 @@
 <template>
   <div class="md-item">
-    <image v-if="movie.images" class="md-item__background" :src="movie.images.large" mode="aspectFill"/>
+    <image
+      v-if="movie.images"
+      class="md-item__background"
+      :src="movie.images.large"
+      mode="aspectFill"
+    ></image>
     <block v-if="movie.title">
       <view class="md-item__meta">
-        <image class="md-item__poster" :src="movie.images.large" mode="aspectFit"/>
+        <image class="md-item__poster" :src="movie.images.large" mode="aspectFit"></image>
         <text class="md-item__title">{{ movie.title }}({{ movie.year }})</text>
         <text class="md-item__info">评分：{{ movie.rating.average }}</text>
-        <text class="md-item__info">导演：<block v-for="director in movie.directors" :key="director.id"> {{ director.name }} </block></text>
-        <text class="md-item__info">主演：<block v-for="cast in movie.casts" :key="cast.id"> {{ cast.name }} </block></text>
+        <text class="md-item__info">
+          导演：
+          <block v-for="director in movie.directors" :key="director.id">{{ director.name }}</block>
+        </text>
+        <text class="md-item__info">
+          主演：
+          <block v-for="cast in movie.casts" :key="cast.id">{{ cast.name }}</block>
+        </text>
       </view>
       <view class="md-item__summary">
         <text class="md-item__label">摘要：</text>
@@ -64,9 +75,8 @@ export default {
 </script>
 
 <style lang="scss">
-@include c('item') {
-
-  @include e('background') {
+@include c("item") {
+  @include e("background") {
     position: fixed;
     left: 0;
     top: 0;
@@ -75,50 +85,49 @@ export default {
     height: 100%;
     width: 100%;
     z-index: -1000;
-    opacity: .1;
+    opacity: 0.1;
   }
 
-  @include e('meta') {
+  @include e("meta") {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50rpx 40rpx;
   }
 
-  @include e('poster') {
+  @include e("poster") {
     width: 100%;
     height: 800rpx;
     margin: 20rpx;
   }
 
-  @include e('title') {
+  @include e("title") {
     font-style: 42rpx;
     color: #444;
   }
 
-  @include e('info') {
+  @include e("info") {
     font-size: 24rpx;
     color: #888;
     margin-top: 20rpx;
     width: 80%;
   }
 
-  @include e('summary') {
+  @include e("summary") {
     width: 80%;
     margin: 30rpx auto;
   }
 
-  @include e('label') {
+  @include e("label") {
     display: block;
     font-size: 30rpx;
     margin-bottom: 30rpx;
   }
 
-  @include e('content') {
+  @include e("content") {
     color: #666;
     font-size: 22rpx;
     padding: 2em;
   }
 }
-
 </style>
