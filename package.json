@@ -5,15 +5,16 @@
   "author": "savoygu <savoygu@163.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "dev:proxy1": "cross-env METHOD=proxy1 npm-run-all --parallel dev proxy1",
-    "dev:proxy2": "cross-env METHOD=proxy2 npm-run-all --parallel dev proxy2",
-    "dev:nginx": "cross-env METHOD=nginx npm run dev",
-    "start": "npm run dev:proxy1",
-    "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src",
     "proxy1": "node douban/app.js",
     "proxy2": " node douban/proxy.js",
+    "server": "npm run dev:proxy1",
+    "start": "node build/dev-server.js",
+    "dev:proxy1": "cross-env METHOD=proxy1 npm-run-all --parallel start proxy1",
+    "dev:proxy2": "cross-env METHOD=proxy2 npm-run-all --parallel start proxy2",
+    "dev:nginx": "cross-env METHOD=nginx npm run start",
+    "dev": "npm run dev:proxy1",
+    "build": "node build/build.js",
+    "lint": "eslint --ext .js,.vue src",
     "filemap": "filemap -i node_modules build config dist .git"
   },
   "dependencies": {
