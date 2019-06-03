@@ -18,22 +18,10 @@
 npm run dev
 ```
 
-### 基于本地代理1
-
-```bash
-npm run dev:proxy1
-```
-
 ### 基于本地代理2
 
 ```bash
 npm run dev:proxy2
-```
-
-### 基于nginx 代理
-
-```bash
-npm run dev:nginx
 ```
 
 ## 目录结构
