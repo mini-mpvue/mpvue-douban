@@ -1,35 +1,35 @@
 {
-  "description": "项目配置文件。",
-  "setting": {
-    "urlCheck": false,
-    "es6": false,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true
-  },
-  "miniprogramRoot": "./dist",
-  "compileType": "miniprogram",
-  "appid": "wx36fd50737d2a0e6b",
-  "projectname": "mpvue-douban",
-  "libVersion": "2.2.4",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": -1,
-      "list": []
-    }
-  }
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"miniprogramRoot": "dist/",
+	"compileType": "miniprogram",
+	"appid": "wx36fd50737d2a0e6b",
+	"projectname": "mpvue-douban",
+	"libVersion": "2.2.4",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
 }

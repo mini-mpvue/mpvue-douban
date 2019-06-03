@@ -1,8 +1,10 @@
 const Koa = require('koa')
 const router = require('koa-router')()
 const request = require('co-request')
+let URI = require('./uri').URI
 
-const URI = 'https://api.douban.com/v2/movie'
+URI += '/v2/movie'
+
 router.prefix('/douban')
 router.get(['/:type', '/:type/:id'], async ctx => {
   let result
@@ -13,6 +15,7 @@ router.get(['/:type', '/:type/:id'], async ctx => {
   } catch (error) {
     throw new Error(error)
   } finally {
+    console.log(result.body)
     ctx.body = JSON.parse(result.body)
   }
 })

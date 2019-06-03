@@ -2,15 +2,18 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const c2k = require('koa2-connect')
 const proxy = require('http-proxy-middleware')
+const URI = require('./uri').URI
 
 const router = new Router()
 router.get('*',
   c2k(
     proxy({
-      target: 'https://api.douban.com/v2/movie',
+      // target: 'https://api.douban.com/v2/movie',
+      target: URI + '/v2/movie',
       changeOrigin: true,
       headers: {
-        referer: 'https://www.douban.com',
+        // referer: 'https://www.douban.com',
+        referer: 'https://developers.douban.com',
         'Content-Type': ''
       }
     })
