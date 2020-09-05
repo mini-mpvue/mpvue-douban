@@ -2558,10 +2558,10 @@ event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
-eventemitter3@^3.0.0:
-  version "3.1.2"
-  resolved "https://registry.npm.taobao.org/eventemitter3/download/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
-  integrity sha1-LT1I+cNGaY/Og6hdfWZOmFNd9uc=
+eventemitter3@^4.0.0:
+  version "4.0.7"
+  resolved "https://registry.npm.taobao.org/eventemitter3/download/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha1-Lem2j2Uo1WRO9cWVJqG0oHMGFp8=
 
 events@^3.0.0:
   version "3.0.0"
@@ -3368,12 +3368,12 @@ http-proxy-middleware@^0.17.4:
     lodash "^4.17.2"
     micromatch "^2.3.11"
 
-http-proxy@^1.16.2, http-proxy@^1.17.0:
-  version "1.17.0"
-  resolved "https://registry.npm.taobao.org/http-proxy/download/http-proxy-1.17.0.tgz#7ad38494658f84605e2f6db4436df410f4e5be9a"
-  integrity sha1-etOElGWPhGBeL220Q230EPTlvpo=
+http-proxy@^1.16.2, http-proxy@^1.18.1:
+  version "1.18.1"
+  resolved "https://registry.npm.taobao.org/http-proxy/download/http-proxy-1.18.1.tgz#401541f0534884bbf95260334e72f88ee3976549"
+  integrity sha1-QBVB8FNIhLv5UmAzTnL4juOXZUk=
   dependencies:
-    eventemitter3 "^3.0.0"
+    eventemitter3 "^4.0.0"
     follow-redirects "^1.0.0"
     requires-port "^1.0.0"
 
